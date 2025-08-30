@@ -124,3 +124,7 @@ MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
 
 STATICFILES_DIRS = [BASE_DIR / "static"]
+
+
+# Auth setting
+AUTH_USER_MODEL = "core.CustomUser"

@@ -17,8 +17,8 @@ MOVIE_CHOICES = (
 
 
 # Custom User Class
-class CustomUsers(AbstractUser):  # fields can be empty during form validation
-    profiles = models.ManyToManyField("profile", null=True, blank=True)
+class CustomUser(AbstractUser):  # fields can be empty during form validation
+    profiles = models.ManyToManyField("Profile", blank=True)
 
 
 # Profile Class Model
