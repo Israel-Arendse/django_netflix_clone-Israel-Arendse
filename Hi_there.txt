@@ -1,0 +1,1 @@
+This is a test to see if the local repository is connected to one I set as a remote repository.
