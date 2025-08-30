@@ -1,1 +1,1 @@
-This is a test to see if the local repository is connected to one I set as a remote repository.
+This is a test to see if the local repository is connected to the one I set up as a remote repository on GitHUb.
