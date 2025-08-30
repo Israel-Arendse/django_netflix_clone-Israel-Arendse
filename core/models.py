@@ -1,3 +1,46 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+import uuid  # import uuid for Profile Model
 
-# Create your models here.
+
+# Age_limit tuple
+AGE_CHOICES = (
+    ("ALL", "ALL"),
+    ("Kids", "Kids"),
+)
+
+# movie_type_ tuple
+MOVIE_CHOICES = (
+    ("seasonal", "Seasonal"),
+    ("single", "Single"),
+)
+
+
+# Custom User Class
+class CustomUsers(AbstractUser):  # fields can be empty during form validation
+    profiles = models.ManyToManyField("profile", null=True, blank=True)
+
+
+# Profile Class Model
+class Profile(models.Model):
+    name = models.CharField(max_length=225)
+    age_limit = models.CharField(max_length=10, choices=AGE_CHOICES)
+    uuid = models.UUIDField(default=uuid.uuid4)
+
+
+# Movie Class Model
+class Movie(models.Model):
+    title = models.CharField(max_length=225)
+    description = models.TextField(blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    uuid = models.UUIDField(default=uuid.uuid4)
+    type = models.CharField(max_length=10, choices=MOVIE_CHOICES)
+    videos = models.ManyToManyField("Video")
+    flyer = models.ImageField(upload_to="flyers")
+    age_limit = models.CharField(max_length=10, choices=AGE_CHOICES)
+
+
+# Video Class Database
+class Video(models.Model):
+    title = models.CharField(max_length=225, blank=True, null=True)
+    file = models.FileField(upload_to="movies")
