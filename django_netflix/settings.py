@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
     "core",  # custom app 'core'
     # third-party apps
     "allauth",
@@ -52,6 +53,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # Allauth middleware
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = "django_netflix.urls"
@@ -149,3 +152,5 @@ ACCOUNT_EMAIL_VERIFICATION = "none"
 
 # Username loggin is not required
 ACCOUNT_USERNAME_REQUIRED = False
+
+LOGIN_REDIRECT_URL = "/"
