@@ -141,3 +141,11 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
+
+# Authentication methods for Email
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
+# Username loggin is not required
+ACCOUNT_USERNAME_REQUIRED = False
