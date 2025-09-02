@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "core",  # custom app 'core'
+    # third-party apps
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
 ]
 
 MIDDLEWARE = [
@@ -128,3 +132,12 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Auth setting
 AUTH_USER_MODEL = "core.CustomUser"
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to log in by username in Django admin, regardless of 'allauth'
+    "django.contrib.auth.backends.ModelBackend",
+    # 'allauth' specific authentication methods, such as login by email
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
+
+SITE_ID = 1
