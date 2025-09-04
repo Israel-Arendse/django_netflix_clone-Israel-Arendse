@@ -1,11 +1,14 @@
 from django.urls import path
-from .views import Home, ProfileList  # import Home view
+from .views import Home, ProfileList, ProfileCreate
 
 app_name = "core"
 
-# set url path for Home page
+
 urlpatterns = [
+    # URL path for Home page
     path("", Home.as_view()),
     # URL path for ProfileList
     path("profile/", ProfileList.as_view(), name="profile_list"),
+    # URL path for ProfileCreate
+    path("profile/create/", ProfileCreate.as_view(), name="profile_create"),
 ]
