@@ -18,7 +18,7 @@ class Home(View):  # class for inheriting 'home' view
         return render(request, "index.html")
 
 
-# Profile view
+# Profile List view
 @method_decorator(login_required, name="dispatch")
 class ProfileList(View):
     def get(self, request, *args, **kwargs):
@@ -27,6 +27,7 @@ class ProfileList(View):
 
 
 # Create Profile view
+@method_decorator(login_required, name="dispatch")
 class ProfileCreate(View):
     def get(self, request, *args, **kwargs):
         # Form for creating profile
