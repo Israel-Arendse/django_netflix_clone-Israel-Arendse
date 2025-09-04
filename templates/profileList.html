@@ -16,7 +16,7 @@
             {% for profile in profiles %}
             <a href="#">
 
-            <div class="w-32 h-32 m-4 flex-col justify-center align-center bg-blue-500 pounded-md cursor-pointer">
+            <div class="w-32 h-32 m-4 flex-col justify-center align-center text-center bg-blue-500 pounded-md cursor-pointer">
                 <p class="text-6x1">
                     {{profile.name | slice:"1"}}
                 </p>
@@ -28,9 +28,11 @@
             {% endfor %}
         </div>
         <div class="flex justify-center items-center">
+            <a href="{% url 'core:profile_create' %}">
             <button class="px-4 py-2 rounded-md outline-none bg-gray-400 text-gray-100">
                 Add A New Profile
             </button>
+            </a>
         </div>
     </section>
 {% endblock %}

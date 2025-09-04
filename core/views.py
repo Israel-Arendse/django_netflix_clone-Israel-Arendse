@@ -7,6 +7,7 @@ from django.utils.decorators import method_decorator
 
 # Import from core/forms.py
 from .forms import ProfileForm
+from core.models import Profile
 
 
 # Home view
@@ -37,7 +38,10 @@ class ProfileCreate(View):
         form = ProfileForm(request.POST or None)
 
         if form.is_valid():
-            print(form.cleaned_data)
+            profile = Profile.objects.create(**form.cleaned_data)
+            if profile:
+                request.user.profiles.add(profile)
+                return redirect("core:profile_list")
         else:
             print(form.errors)
 
