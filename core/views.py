@@ -28,7 +28,17 @@ class ProfileList(View):
 # Create Profile view
 class ProfileCreate(View):
     def get(self, request, *args, **kwargs):
-        # form for creating profile
+        # Form for creating profile
         form = ProfileForm()
+        return render(request, "profileCreate.html", {"form": form})
+
+    # Post method
+    def post(self, request, *args, **kwargs):
+        form = ProfileForm(request.POST or None)
+
+        if form.is_valid():
+            print(form.cleaned_data)
+        else:
+            print(form.errors)
 
         return render(request, "profileCreate.html", {"form": form})

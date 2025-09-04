@@ -5,7 +5,7 @@ import uuid  # import uuid for Profile Model
 
 # Age_limit tuple
 AGE_CHOICES = (
-    ("ALL", "ALL"),
+    ("All", "All"),
     ("Kids", "Kids"),
 )
 
