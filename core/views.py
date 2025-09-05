@@ -7,7 +7,7 @@ from django.utils.decorators import method_decorator
 
 # Import from core/forms.py
 from .forms import ProfileForm
-from core.models import Profile
+from core.models import Profile, Movie
 
 
 # Home view
@@ -47,3 +47,19 @@ class ProfileCreate(View):
             print(form.errors)
 
         return render(request, "profileCreate.html", {"form": form})
+
+
+# Watch movie view
+@method_decorator(login_required, name="dispatch")
+class Watch(View):
+    def get(self, request, profile_id, *args, **kwargs):
+        try:
+            profile = Profile.objects.get(uuid=profile_id)
+            movies = Movie.objects.filter(age_limit=profile.age_limit)
+
+            if profile not in request.user.profiles.all():
+                return redirect(to="core:profile_list")
+
+            return render(request, "movieList.html", {"movies": movies})
+        except Profile.DoesNotExist:
+            return redirect(to="core.profile_list")

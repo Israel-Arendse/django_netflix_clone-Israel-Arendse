@@ -18,7 +18,7 @@ MOVIE_CHOICES = (
 
 # Custom User Class
 class CustomUser(AbstractUser):  # fields can be empty during form validation
-    profiles = models.ManyToManyField("Profile", blank=True)
+    profiles = models.ManyToManyField("Profile", blank=True, related_name="users")
 
 
 # Profile Class Model
@@ -26,6 +26,9 @@ class Profile(models.Model):
     name = models.CharField(max_length=225)
     age_limit = models.CharField(max_length=10, choices=AGE_CHOICES)
     uuid = models.UUIDField(default=uuid.uuid4)
+
+    def __str__(self):
+        return f"{self.name} ({self.age_limit})"
 
 
 # Movie Class Model
