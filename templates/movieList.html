@@ -48,16 +48,18 @@
                 Popular on Netflix
             </h2>
             <div class="flex justify-center  items-center min-w-full  movie_lis">
-                
+               
                 {% for movie in movies %}
                     <a href="#">
-                    <div class="flex-shrink-0  h-40 m-4  bg-blue-500 rounded-md cursor-pointer overflow-hidden w-40" >
-                    <img src="{{ movie.flyers.url }}" class="w-full h-full " alt="">
+                    <div class=" m-4  bg-blue-500 rounded-md cursor-pointer overflow-hidden w-40" >
+                    <img src="{{ movie.flyer.url }}" class="w-full object-cover " alt="" >
                 </div>
+
 
                     </a>
                 {% endfor %}
             </div>
+
         </div>
     </section>
     
