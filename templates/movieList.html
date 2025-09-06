@@ -48,31 +48,15 @@
                 Popular on Netflix
             </h2>
             <div class="flex justify-center  items-center min-w-full  movie_lis">
-                <div class=" h-40 m-4  bg-blue-500 flex-shrink-0 rounded-md cursor-pointer w-40">
-                    
+                
+                {% for movie in movies %}
+                    <a href="#">
+                    <div class="flex-shrink-0  h-40 m-4  bg-blue-500 rounded-md cursor-pointer overflow-hidden w-40" >
+                    <img src="{{ movies.flyers.url }}" class="w-full h-full " alt="">
                 </div>
 
-                <div class="flex-shrink-0  h-40 m-4  bg-blue-500 rounded-md cursor-pointer w-40" >
-    
-                </div>
-
-                <div class="flex-shrink-0  h-40 m-4  bg-blue-500 rounded-md cursor-pointer w-40" >
-    
-                </div>
-
-                <div class="flex-shrink-0  h-40 m-4  bg-blue-500 rounded-md cursor-pointer w-40" >
-    
-                </div>
-
-                <div class="flex-shrink-0  h-40 m-4  bg-blue-500 rounded-md cursor-pointer overflow-hidden w-40" >
-                    <img src="assets/movie.webp" class="w-full h-full " alt="">
-                </div>
-
-                <div class="flex-shrink-0  h-40 m-4  bg-blue-500 rounded-md cursor-pointer w-40" >
-    
-                </div>
-
-            
+                    </a>
+                {% endfor %}
             </div>
         </div>
     </section>
